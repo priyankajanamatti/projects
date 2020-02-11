@@ -1,51 +1,36 @@
-
-     
+<div>
+  <h3 class="textcolor">List of Github Users</h3>
+</div>
 
 <div>
-  
-    <h3 class="textcolor">List of Github Users</h3>
-  
+  <input type="text" (keyup)="applyFilter($event.target.value)" class="form-control input-radius  inputs-size mb-md-2"
+    placeholder="Search" />
 </div>
-    
-      
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-          <ng-container matColumnDef="sno">
-            <th mat-header-cell *matHeaderCellDef> S. No. </th>
-            <td mat-cell *matCellDef="let row; let i = index"> {{i+1}} </td>
-          </ng-container>
-        
-         
-          <!-- Name Column -->
-          <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.login}} </td>
-          </ng-container>
-        
-          <ng-container matColumnDef="type">
-            <th mat-header-cell *matHeaderCellDef> User Type </th>
-            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
-          </ng-container>
-        
-          <!-- Symbol Column -->
-
-       
-          <ng-container matColumnDef="symbol">
-            <th mat-header-cell *matHeaderCellDef> Action </th>
-            <td mat-cell *matCellDef="let element">
-              <button (click)="viewuser(element.login)">View</button>
-            </td>
-          </ng-container>
-        
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-        
-        
-      
-      <!-- <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 20, 30]"></mat-paginator> -->
-    
-   
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="sno">
+    <th mat-header-cell *matHeaderCellDef> S. No. </th>
+    <td mat-cell *matCellDef="let row; let i = index"> {{i+1}} </td>
+  </ng-container>
 
 
-    
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.login}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef> User Type </th>
+    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let element">
+      <button (click)="viewuser(element.login)">View</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

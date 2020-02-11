@@ -19,7 +19,6 @@ export class ViewuserComponent implements OnInit {
 
   ngOnInit() {
     this.username = localStorage.getItem('user');
-    console.log("user = =",this.username);
     this.viewuser();
   }
 
@@ -29,13 +28,7 @@ export class ViewuserComponent implements OnInit {
      
     this.repo_list =JSON.parse(res._body);
     this.dataSource=this.repo_list;
-    console.log("this.user_list = ",this.repo_list)
 
-              // this.dataSource = new MatTableDataSource();
-              // // this.dataSource.paginator = this.paginator;
-              // this.dataSource.data = this.user_list;
-    
-    
     },
     err => console.error(err)
     );
