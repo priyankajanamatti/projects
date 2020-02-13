@@ -41,15 +41,9 @@ this.router.navigate(['/viewuser']);
 
 
 applyFilter(filterValue: string) {
-  var re = /[filterValue]/g; 
-  var newarr =[];
-  var listlength = this.user_list.length;
-  for(var i=0;i<listlength;i++){
-    if (this.user_list[i].login.search(re) == 0 ) { 
-      newarr.push(this.user_list[i])
-   }
-  }
-  this.dataSource = newarr;
+   const results = this.user_list.filter( h => h.login.includes(filterValue) );
+ console.log("result = ",results)
+ this.dataSource = results;
 }
 
 
